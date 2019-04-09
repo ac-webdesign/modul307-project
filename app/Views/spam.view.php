@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1 class="welcome">Spam</h1>
+    <h1 class="title">Spam</h1>
 
     <script src="public/js/app.js"></script>
 </body>
