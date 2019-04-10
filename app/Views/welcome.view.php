@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Meine Seite</title>
-    <link rel="stylesheet" href="public/css/app.scss">
+    <link rel="stylesheet" href="public/styles/app.scss">
 </head>
 <body>
 
