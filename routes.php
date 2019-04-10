@@ -9,4 +9,5 @@ $router->define([
     'clowns' => 'app/Controllers/ClownsController.php',
     'form' => 'app/Controllers/FormController.php',
     'validation' => 'app/Controllers/ValidationController.php',
+    'validationjs' => 'app/Controllers/ValidationJS.php',
 ]);
