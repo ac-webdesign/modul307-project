@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
-    <link rel="stylesheet" href="public/css/app.css">
+    <link rel="stylesheet" href="public/css/app.scss">
 </head>
 
 <body>
