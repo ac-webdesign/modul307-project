@@ -9,7 +9,7 @@
 
 <body>
     <h1 class="title">Formular</h1>
-    <form action="/" method="POST">
+    <form action="/modul307-project/validation" method="POST">
         <fieldset class="field">
             <legend>Allgemein:</legend>
             <label class="label" class="label" for="bus">Wir möchten den Shuttle-Bus-Service beanspruchen:</label>
@@ -26,8 +26,8 @@
             <label class="label" for="tel">Telefon: </label>
             <input class="control" id="tel" type="tel"><br>
 
-            <label class="label" for="note">Haben Sie sonst noch einen Wunsch oder eine Bemerkung?</label>
-            <textarea class="textarea" name="note" id="note" rows="3"></textarea><br>
+            <!-- <label class="label" for="note">Haben Sie sonst noch einen Wunsch oder eine Bemerkung?</label>
+            <textarea class="textarea" name="note" id="note" rows="3"></textarea><br> -->
 
             <label class="label" for="radio">In welchem Hotel möchten Sie übernachten?</label>
             <br>
