@@ -7,15 +7,12 @@ document.querySelector('#form').addEventListener('submit', function (e) {
         errors.push("Error");
     }
 
+    errorbox.innerHTML = '';
+
     errors.forEach(error => {
         var li = document.createElement('li');
         li.innerHTML = error;
         errorbox.appendChild(li);
-        setTimeout(function () {
-            errorbox.removeChild(li);
-            errorbox.style.display = 'none';
-        }, 3000);
-        errorbox.style.display = 'block';
     });
 
     if (errors.length !== 0) {
