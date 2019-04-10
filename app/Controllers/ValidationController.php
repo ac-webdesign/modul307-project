@@ -1,8 +1,17 @@
 <?php
-var_dump($_SERVER['REQUEST_METHOD']);
-var_dump($_POST);
-if (sizeof($_POST) === 0) {
-    require 'app/Views/form.view.php';
-} else {
-    require 'app/Views/validation.view.php';
+$errors = [];
+$name = $_POST['name'];
+$email = $_POST['email'];
+$tel = $_POST['tel'];
+
+$formValues = [$name, $email, $tel];
+
+foreach ($formValues as $formControl) {
+    trim($formControl);
+    if (empty($formControl)) {
+        $message = 'Text ist leer';
+        array_push($errors, $message);
+    }
 }
+
+require 'app/Views/form.view.php';

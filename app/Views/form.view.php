@@ -19,13 +19,13 @@
         <div class="field">
             <label class="label" for="email">Email</label>
             <div class="control">
-                <input id="email" class="input" type="email" placeholder="Text input">
+                <input id="email" name="email" class="input" type="email" placeholder="Text input">
             </div>
         </div>
         <div class="field">
             <label class="label" for="tel">Telefon</label>
             <div class="control">
-                <input id="tel" class="input" type="text" placeholder="Text input">
+                <input id="tel" name="tel" class="input" type="text" placeholder="Text input">
             </div>
         </div>
         <div class="field is-grouped">
@@ -37,6 +37,13 @@
             </div>
         </div>
     </form>
+    <?php if (count($errors) > 0) : ?>
+        <ul>
+            <?php foreach ($errors as $error) : ?>
+                <li><?= $error ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
     <script src="public/js/app.js"></script>
 </body>
 
