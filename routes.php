@@ -7,4 +7,5 @@ $router->define([
     'about' => 'app/Controllers/AboutController.php',
     'spam' => 'app/Controllers/SpamController.php',
     'clowns' => 'app/Controllers/ClownsController.php',
+    'form' => 'app/Controllers/FormController.php',
 ]);
