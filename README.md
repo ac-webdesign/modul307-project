@@ -12,3 +12,5 @@
 2. `git pull` or `git clone`
 3. Commit and push changes (`git push`)
 4. Create Pull Request
+
+## [Dokumentation](https://github.com/ac-webdesign/modul307-project/blob/master/docs/conecpt-project.docx)
