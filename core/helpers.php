@@ -7,7 +7,7 @@
  *
  * @return string
  */
-function e(string $value): string
+function catchHtmlSpecialChar(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
 }
