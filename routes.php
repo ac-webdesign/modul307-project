@@ -10,4 +10,5 @@ $router->define([
     'form' => 'app/Controllers/FormController.php',
     'validation' => 'app/Controllers/ValidationController.php',
     'validationjs' => 'app/Controllers/ValidationJS.php',
+    'tasks' => 'app/Controllers/TaskController.php',
 ]);
