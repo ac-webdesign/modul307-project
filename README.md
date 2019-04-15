@@ -1,4 +1,4 @@
-# modul307-project
+# M307: Reperaturwerkstatt
 
 ## Tooling
 
