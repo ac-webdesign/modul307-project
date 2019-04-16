@@ -15,7 +15,7 @@ class Repairs
     public $db;
 
     // Konstruktor
-    function __construct($firstName, $lastName, $email, $telephone = null, $urgent, $isDone, $startDate, $tool)
+    function __construct($firstName = null, $lastName = null, $email = null, $telephone = null, int $urgent = null, $isDone = null, $startDate = null, $toolId = null)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -24,7 +24,7 @@ class Repairs
         $this->urgent = $urgent;
         $this->isDone = $isDone === "Auftrag ist abgeschlossen" ? true : false;
         $this->startDate = $startDate;
-        $this->tool = $tool;
+        $this->tool = $toolId;
         $this->db = connectToDatabase();
     }
 
@@ -61,14 +61,13 @@ class Repairs
         $updateStatement = $this->db->prepare(
             'UPDATE `repairs` 
             SET firstname=:firstName, 
-            SET lastname=:lastName, 
-            SET email=:email, 
-            SET telephone=:telephone, 
-            SET urgent=:urgent, 
-            SET is_done=:isDone, 
-            SET startdate=:startDate, 
-            SET enddate=:endDate, 
-            SET tool=:tool, 
+             lastname=:lastName, 
+             email=:email, 
+             telephone=:telephone, 
+             urgent=:urgent, 
+             is_done=:isDone, 
+             startdate=:startDate, 
+             fk_tool=:tool 
             WHERE id = :id 
             '
         );
@@ -80,7 +79,7 @@ class Repairs
         $updateStatement->bindParam(':urgent', $this->urgent);
         $updateStatement->bindParam(':isDone', $this->isDone);
         $updateStatement->bindParam(':startDate', $this->startDate);
-        $updateStatement->bindParam(':tool', $this->tool);
+        $updateStatement->bindParam(':tool', $this->tool->id);      
         return $updateStatement->execute();
     }
 
