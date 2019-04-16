@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <script src="public/js/generate-end-date.js"></script>
+    <script src="public/js/app.js"></script>
 </body>
 
 </html>
