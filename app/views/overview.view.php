@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Reperaturauftrag - Übersicht</title>
     <link rel="stylesheet" href="public/styles/app.scss">
 </head>
@@ -13,7 +15,7 @@
         <div class="container">
             <h2 class="subtitle">Vorgänge</h2>
             <?php foreach ($repairs as $repair) : ?>
-                <?php if($repair['is_done'] === '0') : ?>
+                <?php if ($repair['is_done'] === '0') : ?>
                     <div class="card">
                         <header class="card-header">
                             <p class="card-header-title">
@@ -59,12 +61,12 @@
                             <a href="edit?id=<?= $repair['id'] ?>" class="card-footer-item">Edit</a>
                         </footer>
                     </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
-        </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
-        <script src="public/js/app.js"></script>
-    </body>
+    <script src="public/js/app.js"></script>
+</body>
 
-    </html>
+</html>
