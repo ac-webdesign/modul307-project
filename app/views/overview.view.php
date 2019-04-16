@@ -11,9 +11,17 @@
 
 <body>
     <section class="section">
-        <h1 class="title">Reparaturwerkstatt</h1>
         <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title">Reparaturwerkstatt</h1>
+                </div>
+                <div class="column">
+                    <a href="new" class="button is-success"><i class="icon-new"></i>Neuer Auftrag erstellen</a>
+                </div>
+            </div>
             <h2 class="subtitle">Vorgänge</h2>
+
             <?php foreach ($repairs as $repair) : ?>
                 <?php if ($repair['is_done'] === '0') : ?>
                     <div class="card">
@@ -58,7 +66,7 @@
                             </div>
                         </div>
                         <footer class="card-footer">
-                            <a href="edit?id=<?= $repair['id'] ?>" class="card-footer-item"><i class="icon-pencil"></i>Edit</a>
+                            <a href="edit?id=<?= $repair['id'] ?>" class="card-footer-item"><i class="icon-pencil"></i>Auftrag bearbeiten</a>
                         </footer>
                     </div>
                 <?php endif; ?>
