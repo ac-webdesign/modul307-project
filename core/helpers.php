@@ -73,12 +73,12 @@ function getToolByName($name)
 }
 
 /**
- * Hollt alle Urgents aus DB
+ * Hollt Urgents Array
  */
-function getUrgentDays(string $urgent)
+function getAllUrgents()
 {
     // Urgents Array mit einzelne Urgent-Array
-    $urgents = [
+    return [
         'urgent1' => array(
             'name' => 'sehr tief',
             'days' => 25,
@@ -100,6 +100,14 @@ function getUrgentDays(string $urgent)
             'days' => 5,
         ),
     ];
+}
+
+/**
+ * Hollt spezifische Urgent mit den Tagen
+ */
+function getUrgentDays(string $urgent)
+{
+    $urgents = getAllUrgents();
 
     foreach ($urgents as $ur => $u) {
         if ($u['name'] === $urgent) {
