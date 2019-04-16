@@ -34,7 +34,7 @@
                                 <strong>Werkzeug:</strong>
                             </div>
                             <div class="column is-one-third">
-                                <?= $repair['fk_tool'] ?>
+                                <?= getToolById($repair['fk_tool'])['name']; ?>
                             </div>
                         </div>
                         <div class="columns">

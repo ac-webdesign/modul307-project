@@ -36,13 +36,22 @@ function getAllTools()
     return $tools->fetchAll();
 }
 
+function getToolById(int $id)
+{
+    $db = connectToDatabase();
+    $getByIdStatement = $db->prepare('SELECT * FROM `tools` WHERE id = :id ');
+    $getByIdStatement->bindParam(':id', $id);
+    $getByIdStatement->execute();
+    return $getByIdStatement->fetch();
+}
+
 function getToolByName($name)
 {
     $db = connectToDatabase();
-    $getByIdStatement = $db->prepare('SELECT * FROM `tools` WHERE name = :name ');
-    $getByIdStatement->bindParam(':name', $name);
-    $getByIdStatement->execute();
-    return $getByIdStatement->fetch();
+    $getByNameStatement = $db->prepare('SELECT * FROM `tools` WHERE name = :name ');
+    $getByNameStatement->bindParam(':name', $name);
+    $getByNameStatement->execute();
+    return $getByNameStatement->fetch();
 }
 
 /**
