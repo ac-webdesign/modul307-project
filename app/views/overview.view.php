@@ -42,7 +42,7 @@
                                 <strong>Reparatur voraussichtlich abgeschlossen am:</strong>
                             </div>
                             <div class="column is-one-third">
-                                <?= date_format(new DateTime($repair['startdate']), 'd.m.Y'); ?>
+                                <?= generateEndDate($repair); ?>
                             </div>
                         </div>
                         <div class="columns">
