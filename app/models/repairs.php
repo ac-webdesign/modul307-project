@@ -11,7 +11,7 @@ class Repairs
     public $urgent;
     public $isDone;
     public $startDate;
-    public $tool;
+    public $toolId;
     public $db;
 
     // Konstruktor
@@ -24,7 +24,7 @@ class Repairs
         $this->urgent = $urgent;
         $this->isDone = $isDone === "Auftrag ist abgeschlossen" ? true : false;
         $this->startDate = $startDate;
-        $this->tool = $toolId;
+        $this->toolId = $toolId;
         $this->db = connectToDatabase();
     }
 
@@ -42,7 +42,7 @@ class Repairs
         $insertStatement = $this->db->prepare(
             'INSERT INTO `repairs` 
             (id, firstname, lastname, email, telephone, urgent, is_done, startdate, fk_tool) 
-            VALUES (null, :firstName, :lastName, :email, :telephone, :urgent, :isDone, :startDate, :tool)
+            VALUES (null, :firstName, :lastName, :email, :telephone, :urgent, :isDone, :startDate, :toolId)
             '
         );
         $insertStatement->bindParam(':firstName', $this->firstName);
@@ -52,7 +52,7 @@ class Repairs
         $insertStatement->bindParam(':urgent', $this->urgent);
         $insertStatement->bindParam(':isDone', $this->isDone);
         $insertStatement->bindParam(':startDate', $this->startDate);
-        $insertStatement->bindParam(':tool', $this->tool);
+        $insertStatement->bindParam(':toolId', $this->toolId);
         $insertStatement->execute();
     }
 
@@ -67,7 +67,7 @@ class Repairs
              urgent=:urgent, 
              is_done=:isDone, 
              startdate=:startDate, 
-             fk_tool=:tool 
+             fk_tool=:toolId 
             WHERE id = :id 
             '
         );
@@ -79,14 +79,8 @@ class Repairs
         $updateStatement->bindParam(':urgent', $this->urgent);
         $updateStatement->bindParam(':isDone', $this->isDone);
         $updateStatement->bindParam(':startDate', $this->startDate);
-        $updateStatement->bindParam(':tool', $this->tool->id);      
+        $updateStatement->bindParam(':toolId', $this->toolId);      
         return $updateStatement->execute();
     }
 
-    public function delete(int $id): bool
-    {
-        $deleteStatement = $this->db->prepare('DELETE FROM `repairs` WHERE id = :id ');
-        $deleteStatement->bindParam(':id', $id);
-        return $deleteStatement->execute();
-    }
 }

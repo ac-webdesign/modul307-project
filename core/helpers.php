@@ -1,29 +1,4 @@
 <?php
-// TODO Validation
-// Urgents Array mit einzelne Urgent-Array
-$urgents = [
-    'urgent1' => array(
-        'name' => 'sehr tief',
-        'number' => 25,
-    ),
-    'urgent2' => array(
-        'name' => 'tief',
-        'number' => 20,
-    ),
-    'urgent3' => array(
-        'name' => 'normal',
-        'number' => 15,
-    ),
-    'urgent4' => array(
-        'name' => 'hoch',
-        'number' => 10,
-    ),
-    'urgent5' => array(
-        'name' => 'sehr hoch',
-        'number' => 5,
-    ),
-];
-
 /**
  * Nutze diese Funktion um einfach eine Ausgabe
  * mit htmlspecialchars() zu erstellen.
@@ -61,16 +36,54 @@ function getAllTools()
     return $tools->fetchAll();
 }
 
-function getUrgentNumber(string $urgent)
+function getToolByName($name)
 {
+    $db = connectToDatabase();
+    $getByIdStatement = $db->prepare('SELECT * FROM `tools` WHERE name = :name ');
+    $getByIdStatement->bindParam(':name', $name);
+    $getByIdStatement->execute();
+    return $getByIdStatement->fetch();
+}
+
+/**
+ * Hollt alle Werkzeuge aus DB
+ */
+function getUrgentDays(string $urgent)
+{
+    // Urgents Array mit einzelne Urgent-Array
+    $urgents = [
+        'urgent1' => array(
+            'name' => 'sehr tief',
+            'days' => 25,
+        ),
+        'urgent2' => array(
+            'name' => 'tief',
+            'days' => 20,
+        ),
+        'urgent3' => array(
+            'name' => 'normal',
+            'days' => 15,
+        ),
+        'urgent4' => array(
+            'name' => 'hoch',
+            'days' => 10,
+        ),
+        'urgent5' => array(
+            'name' => 'sehr hoch',
+            'days' => 5,
+        ),
+    ];
+
     foreach ($urgents as $ur => $u) {
         if ($u['name'] === $urgent) {
-            return $u['number'];
+            return $u['days'];
         }
     }
 }
 
-// Enddatum berechnen
+/**
+ * Enddatum berechnen
+ */
 function generateEndDate($repair)
 {
     return date('d.m.y', strtotime($repair['startdate'] . " + " . $repair['urgent'] . " days"));

@@ -12,8 +12,6 @@
         <div class="container">
             <h1 class="title">Auftrag bearbeiten</h1>
             <form action="update" method="POST">
-                <input type="hidden" name="toolId" value="<?= $tool['id']; ?>">   
-
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
@@ -54,7 +52,7 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>"><?= $tool['name'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" selected="<?= $tool['id'] === $selectedTool['id'] ? true : false ?>"><?= $tool['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>                        

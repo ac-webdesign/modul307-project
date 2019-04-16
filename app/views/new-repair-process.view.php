@@ -16,12 +16,14 @@
                 <legend class="subtitle">
                     <strong>Allgemein</strong>
                 </legend>
+
                 <div class="field">
                     <label class="label" for="start-date">Start:</label>
                     <div class="control">
                         <input id="start-date" name="start-date" class="input" type="date" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
@@ -36,12 +38,14 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="end-date">Ende:</label>
                     <div class="control">
                         <input id="end-date" name="end-date" class="input" type="text" disabled>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="is-done">Status:</label>
                     <div class="control">
@@ -53,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="tool">Werkzeug:</label>
                     <div class="control">
@@ -65,34 +70,40 @@
                         </div>
                     </div>
                 </div>
+
                 <br>
                 <legend class="subtitle">
                     <strong>Auftraggeber</strong>
                 </legend>
+
                 <div class="field">
                     <label class="label" for="firstname">Vorname:</label>
                     <div class="control">
                         <input id="firstname" name="firstname" class="input" type="text" required>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="lastname">Nachname:</label>
                     <div class="control">
                         <input id="lastname" name="lastname" class="input" type="text" required>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="email">Email:</label>
                     <div class="control">
                         <input id="email" name="email" class="input" type="email" required>
                     </div>
                 </div>
+
                 <div class="field">
                     <label class="label" for="tel">Telefon:</label>
                     <div class="control">
                         <input id="tel" name="tel" class="input" type="tel">
                     </div>
                 </div>
+                
                 <div class="field is-grouped">
                     <div class="control">
                         <button type="submit" class="button is-link">Auftrag erstellen</button>

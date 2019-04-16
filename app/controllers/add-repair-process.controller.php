@@ -1,23 +1,17 @@
 <?php
-
 $startDate = $_POST['start-date'];
 $urgent = $_POST['urgent'];
 $isDone = $_POST['is-done'];
-$tool = $_POST['tool'];
+$tool = getToolByName($_POST['tool']);
+$toolId = $tool['id'];
 $firstname = trim($_POST['firstname']);
 $lastname = trim($_POST['lastname']);
 $email = trim($_POST['email']);
 $tel = trim($_POST['tel']) ?? null;
 
-foreach ($urgents as $ur => $u) {
-    if ($u['name'] === $urgent) {
-        $urgent = $u['number'];
-    }
-}
+$urgent = getUrgentDays($urgent);
 
-$urgent = getUrgentNumber($urgent);
-
-$newRepairProcess = new Repairs($firstname, $lastname, $email, $tel, $urgent, $isDone, $startDate, $tool);
+$newRepairProcess = new Repairs($firstname, $lastname, $email, $tel, $urgent, $isDone, $startDate, $toolId);
 $newRepairProcess->create();
 
 header('Location: overview');
