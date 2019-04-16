@@ -36,6 +36,9 @@ function getAllTools()
     return $tools->fetchAll();
 }
 
+/**
+ * Hollt alle Werkzeuge mit der bestimmten ID aus DB
+ */
 function getToolById(int $id)
 {
     $db = connectToDatabase();
@@ -45,6 +48,9 @@ function getToolById(int $id)
     return $getByIdStatement->fetch();
 }
 
+/**
+ * Hollt alle Werkzeuge mit den bestimmten Namen aus DB
+ */
 function getToolByName($name)
 {
     $db = connectToDatabase();
@@ -55,7 +61,7 @@ function getToolByName($name)
 }
 
 /**
- * Hollt alle Werkzeuge aus DB
+ * Hollt alle Urgents aus DB
  */
 function getUrgentDays(string $urgent)
 {
