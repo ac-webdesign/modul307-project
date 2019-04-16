@@ -58,6 +58,9 @@
                     <div class="control">
                         <div class="select">
                             <select id="tool" required>
+                                <?php foreach ($tools as $tool) : ?>
+                                    <option><?= $tool['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
