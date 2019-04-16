@@ -19,7 +19,7 @@
                 <div class="field">
                     <label class="label" for="start-date">Start:</label>
                     <div class="control">
-                        <input id="start-date" name="start-date" class="input" type="date" required>
+                        <input id="start-date" name="start-date" class="input" type="date" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
                 <div class="field">
