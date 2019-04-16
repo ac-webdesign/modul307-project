@@ -11,7 +11,7 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Auftrag erstellen</h1>
-            <form>
+            <form action="/add" method="POST">
 
             </form>
         </div>
