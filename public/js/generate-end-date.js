@@ -1,6 +1,8 @@
+// Add Event Listeners to form Controls
 document.querySelector('#start-date').addEventListener('input', generateEndDate);
 document.querySelector('#urgent').addEventListener('input', generateEndDate);
 
+// Declare Array-Object urgents
 var urgents = [
     {
         name: 'sehr tief',
@@ -24,6 +26,7 @@ var urgents = [
     }
 ]
 
+// Methods
 function generateEndDate() {
     var newStartDate = new Date(document.querySelector('#start-date').value);
     var selectedUrgent = document.getElementById('urgent').value;
