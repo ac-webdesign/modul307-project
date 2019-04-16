@@ -11,7 +11,6 @@ class Repairs
     public $urgent;
     public $isDone;
     public $startDate;
-    public $endDate;
     public $tool;
     public $db;
 
@@ -23,10 +22,9 @@ class Repairs
         $this->email = $email;
         $this->telephone = $telephone;
         $this->urgent = $urgent;
-        $this->isDone = $isDone;
+        $this->isDone = $isDone === "Auftrag ist abgeschlossen" ? true : false;
         $this->startDate = $startDate;
-        $this->endDate = $startDate + $urgent;
-        $this->tool = new Tools($tool);
+        $this->tool = $tool;
         $this->db = connectToDatabase();
     }
 
@@ -43,8 +41,8 @@ class Repairs
     {
         $insertStatement = $this->db->prepare(
             'INSERT INTO `repairs` 
-            (id, firstname, lastname, email, telephone, urgent, is_done, startdate, enddate, fk_tool) 
-            VALUES (null, :firstName, :lastName, :email, :telephone, :urgent, :isDone, :startDate, :endDate, :tool)
+            (id, firstname, lastname, email, telephone, urgent, is_done, startdate, fk_tool) 
+            VALUES (null, :firstName, :lastName, :email, :telephone, :urgent, :isDone, :startDate, :tool)
             '
         );
         $insertStatement->bindParam(':firstName', $this->firstName);
@@ -54,7 +52,6 @@ class Repairs
         $insertStatement->bindParam(':urgent', $this->urgent);
         $insertStatement->bindParam(':isDone', $this->isDone);
         $insertStatement->bindParam(':startDate', $this->startDate);
-        $insertStatement->bindParam(':endDate', $this->endDate);
         $insertStatement->bindParam(':tool', $this->tool);
         $insertStatement->execute();
     }
@@ -83,7 +80,6 @@ class Repairs
         $updateStatement->bindParam(':urgent', $this->urgent);
         $updateStatement->bindParam(':isDone', $this->isDone);
         $updateStatement->bindParam(':startDate', $this->startDate);
-        $updateStatement->bindParam(':endDate', $this->endDate);
         $updateStatement->bindParam(':tool', $this->tool);
         return $updateStatement->execute();
     }
