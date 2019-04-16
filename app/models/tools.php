@@ -8,9 +8,9 @@ class Tools
     public $db;
 
     // Konstruktor
-    function __construct($name)
+    function __construct($id = null)
     {
-        $this->name = $name;
+        $this->id = $id;
         $this->db = connectToDatabase();
     }
 
