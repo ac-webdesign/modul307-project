@@ -1,2 +1,3 @@
-// Javascript
-console.info('JS geladen.');
+// Import public js files
+
+import 'public/js/generate-end-date.js';
