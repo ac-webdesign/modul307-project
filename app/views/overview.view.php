@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <footer class="card-footer">
-                            <a href="edit?id=<?= $repair['id'] ?>" class="card-footer-item">Edit</a>
+                            <a href="edit?id=<?= $repair['id'] ?>" class="card-footer-item"><i class="icon-pencil"></i>Edit</a>
                         </footer>
                     </div>
                 <?php endif; ?>
