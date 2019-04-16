@@ -13,21 +13,20 @@
         <div class="container">
             <h1 class="title">Auftrag erstellen</h1>
             <form action="app/controllers/add-repair-process.controller.php" method="POST">
-                <legend>
+                <legend class="subtitle">
                     <strong>Allgemein<strong>
                 </legend>
-                <br>
                 <div class="field">
                     <label class="label" for="start-date">Start:</label>
                     <div class="control">
-                        <input id="start-date" class="input" type="date">
+                        <input id="start-date" class="input" type="date" required>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
-                            <select id="urgent">
+                            <select id="urgent" required>
                                 <option>sehr tief</option>
                                 <option>tief</option>
                                 <option>normal</option>
@@ -47,7 +46,7 @@
                     <label class="label" for="is-done">Status:</label>
                     <div class="control">
                         <div class="select">
-                            <select id="is-done">
+                            <select id="is-done" required>
                                 <option>Auftrag ist abgeschlossen</option>
                                 <option>Auftrag ist pendent</option>
                             </select>
@@ -58,32 +57,31 @@
                     <label class="label" for="tool">Werkzeug:</label>
                     <div class="control">
                         <div class="select">
-                            <select id="tool">
+                            <select id="tool" required>
                             </select>
                         </div>
                     </div>
                 </div>
                 <br>
-                <legend>
+                <legend class="subtitle">
                     <strong>Auftraggeber<strong>
                 </legend>
-                <br>
                 <div class="field">
                     <label class="label" for="firstname">Vorname:</label>
                     <div class="control">
-                        <input id="firstname" class="input" type="text">
+                        <input id="firstname" class="input" type="text" required>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label" for="lastname">Name:</label>
+                    <label class="label" for="lastname">Nachname:</label>
                     <div class="control">
-                        <input id="lastname" class="input" type="text">
+                        <input id="lastname" class="input" type="text" required>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label" for="email">Email:</label>
                     <div class="control">
-                        <input id="email" class="input" type="email">
+                        <input id="email" class="input" type="email" required>
                     </div>
                 </div>
                 <div class="field">
