@@ -27,11 +27,11 @@
                     <div class="control">
                         <div class="select">
                             <select id="urgent" required>
-                                <option>sehr tief</option>
-                                <option>tief</option>
-                                <option>normal</option>
-                                <option>hoch</option>
-                                <option>sehr hoch</option>
+                                <option value="sehr tief">sehr tief</option>
+                                <option value="tief">tief</option>
+                                <option value="normal">normal</option>
+                                <option value="hoch">hoch</option>
+                                <option value="sehr hoch">sehr hoch</option>
                             </select>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="field">
                     <label class="label" for="end-date">Ende:</label>
                     <div class="control">
-                        <input id="end-date" name="end-date" class="input" type="date" value="" disabled>
+                        <input id="end-date" name="end-date" class="input" type="text" disabled>
                     </div>
                 </div>
                 <div class="field">
