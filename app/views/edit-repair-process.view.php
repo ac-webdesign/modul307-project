@@ -22,25 +22,39 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="is-done">Status:</label>
+                    <label class="label" for="start-date">Start:</label>
                     <div class="control">
-                        <div class="select">
-                            <select id="is-done" name="is-done" required>
-                                <option value="Auftrag ist abgeschlossen">Auftrag ist abgeschlossen</option>
-                                <option value="Auftrag ist pendent">Auftrag ist pendent</option>
-                            </select>
-                        </div>
+                        <input class="input" type="date" name="start-date" id="start-date" value="<?= date("Y-m-d", strtotime($repair['startdate'])); ?>" required>
                     </div>
                 </div>
-
+                
                 <div class="field">
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
                             <select name="urgent" id="urgent" required>
                                 <?php foreach ($urgents as $urgent) : ?>
-                                    <option value="<?= $urgent['name'] ?>"><?= $urgent['name'] ?></option>
+                                    <option value="<?= $urgent['name'] ?>" <?php if($urgent['days'] === $repair['urgent']){echo("selected");}?>><?= $urgent['name'] ?></option>
                                 <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="end-date">Ende:</label>
+                    <div class="control">
+                        <input class="input" type="text" name="end-date" id="end-date" value="<?= generateEndDate($repair); ?>" disabled>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="is-done">Status:</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="is-done" name="is-done" required>
+                                <option value="Auftrag ist abgeschlossen" <?php if($repair['is_done'] === '1'){echo("selected");}?>>Auftrag ist abgeschlossen</option>
+                                <option value="Auftrag ist pendent" <?php if($repair['is_done'] === '0'){echo("selected");}?>>Auftrag ist pendent</option>
                             </select>
                         </div>
                     </div>
@@ -52,27 +66,14 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>" selected="<?= $tool['id'] === $selectedTool['id'] ? 'true' : 'false' ?>"><?= $tool['name'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" <?php if($tool['id'] === $selectedTool['id']){echo("selected");}?>><?= $tool['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
                 </div>
-
-                <div class="field">
-                    <label class="label" for="start-date">Start:</label>
-                    <div class="control">
-                        <input class="input" type="date" name="start-date" id="start-date" value="<?= date("Y-m-d", strtotime($repair['startdate'])); ?>" required>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label" for="end-date">Ende:</label>
-                    <div class="control">
-                        <input class="input" type="text" name="end-date" id="end-date" value="<?= generateEndDate($repair); ?>" disabled>
-                    </div>
-                </div>
                 <br>
+
                 <legend class=" subtitle">
                     <strong>Auftraggeber</strong>
                 </legend>
