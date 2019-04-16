@@ -1,5 +1,6 @@
 <?php
 // TODO Validation
+// Urgents Array mit einzelne Urgent-Array
 $urgents = [
     'urgent1' => array(
         'name' => 'sehr tief',
@@ -41,4 +42,4 @@ foreach ($urgents as $ur => $u) {
 $newRepairProcess = new Repairs($firstname, $lastname, $email, $tel, $urgent, $isDone, $startDate, $tool);
 $newRepairProcess->create();
 
-header('/');
+header('Location: overview');
