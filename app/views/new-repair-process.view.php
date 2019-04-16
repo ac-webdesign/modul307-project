@@ -26,7 +26,7 @@
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
-                            <select id="urgent" required>
+                            <select id="urgent" name="urgent" required>
                                 <option value="sehr tief">sehr tief</option>
                                 <option value="tief">tief</option>
                                 <option value="normal">normal</option>
