@@ -11,12 +11,12 @@
     <section class="section">
         <h1 class="title">Reparaturwerkstatt</h1>
         <div class="container">
-        <h2 class="subtitle">Vorgänge</h2>
+            <h2 class="subtitle">Vorgänge</h2>
             <?php foreach ($repairs as $repair) : ?>
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                           Auftrag <?= $repair['id'] ?>
+                            Auftrag <?= $repair['id'] ?>
                         </p>
                     </header>
                     <div class="card-content">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="edit" class="card-footer-item">Edit</a>
+                        <a href="edit?id=<?= $repair['id'] ?>" class="card-footer-item">Edit</a>
                     </footer>
                 </div>
             <?php endforeach; ?>
