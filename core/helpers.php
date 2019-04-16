@@ -69,3 +69,9 @@ function getUrgentNumber(string $urgent)
         }
     }
 }
+
+// Enddatum berechnen
+function generateEndDate($repair)
+{
+    return date('d.m.y', strtotime($repair['startdate'] . " + " . $repair['urgent'] . " days"));
+}
