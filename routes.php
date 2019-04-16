@@ -3,7 +3,10 @@
 $router = new Router();
 
 $router->define([
-    '' => 'app/Controllers/WelcomeController.php',
+    '' => 'app/controllers/overview.controller.php',
+    'overview' => 'app/controllers/overview.controller.php',
+    'new' => 'app/controllers/new-repair-process.controller.php',
+    'add' => 'app/controllers/add-repair-process.controller.php',
     'edit' => 'app/Controllers/EditRepairController.php',
     'updaterepair' => 'app/Controllers/UpdateRepairController.php',
 ]);

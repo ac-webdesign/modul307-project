@@ -8,8 +8,12 @@
 function connectToDatabase()
 {
     try {
-        return new PDO('mysql:host=127.0.0.1;dbname=kurseictbz_30702', 'root', '', [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        // return new PDO('mysql:host=dedi3038.secure.exenti.ch;dbname=kurseictbz_30702', 'kurseictbz_30702', 'db_307_pw_02', [
+        //     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        //     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+        // ]);
+        return new PDO('mysql:host=localhost;dbname=kurseictbz_30702', 'root', '', [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         ]);
     } catch (PDOException $e) {

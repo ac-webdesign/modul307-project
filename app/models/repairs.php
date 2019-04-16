@@ -11,7 +11,6 @@ class Repairs
     public $urgent;
     public $isDone;
     public $startDate;
-    public $endDate;
     public $tool;
     public $db;
 
@@ -23,10 +22,9 @@ class Repairs
         $this->email = $email;
         $this->telephone = $telephone;
         $this->urgent = $urgent;
-        $this->isDone = $isDone;
+        $this->isDone = $isDone === "Auftrag ist abgeschlossen" ? true : false;
         $this->startDate = $startDate;
-        $this->endDate = $startDate + $urgent;
-        $this->tool = new Tools($toolId);
+        $this->tool = $tool;
         $this->db = connectToDatabase();
     }
 
@@ -81,7 +79,7 @@ class Repairs
         $updateStatement->bindParam(':urgent', $this->urgent);
         $updateStatement->bindParam(':isDone', $this->isDone);
         $updateStatement->bindParam(':startDate', $this->startDate);
-        $updateStatement->bindParam(':tool', $this->tool->id);        
+        $updateStatement->bindParam(':tool', $this->tool->id);      
         return $updateStatement->execute();
     }
 
