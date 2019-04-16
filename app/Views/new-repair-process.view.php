@@ -18,33 +18,49 @@
                 </legend>
                 <br>
                 <div class="field">
-                    <label class="label">Start:</label>
+                    <label class="label" for="start-date">Start:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <input id="start-date" class="input" type="date">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Ende:</label>
+                    <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <div class="select">
+                            <select id="urgent">
+                                <option>sehr tief</option>
+                                <option>tief</option>
+                                <option>normal</option>
+                                <option>hoch</option>
+                                <option>sehr hoch</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Status:</label>
+                    <label class="label" for="end-date">Ende:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <input id="end-date" class="input" type="date" value="" disabled>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Dringlichkeit:</label>
+                    <label class="label" for="is-done">Status:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <div class="select">
+                            <select id="is-done">
+                                <option>Auftrag ist abgeschlossen</option>
+                                <option>Auftrag ist pendent</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Werkzeug:</label>
+                    <label class="label" for="tool">Werkzeug:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <div class="select">
+                            <select id="tool">
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -53,21 +69,35 @@
                 </legend>
                 <br>
                 <div class="field">
-                    <label class="label">Name:</label>
+                    <label class="label" for="firstname">Vorname:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <input id="firstname" class="input" type="text">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Email:</label>
+                    <label class="label" for="lastname">Name:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <input id="lastname" class="input" type="text">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Telefon:</label>
+                    <label class="label" for="email">Email:</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
+                        <input id="email" class="input" type="email">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="tel">Telefon:</label>
+                    <div class="control">
+                        <input id="tel" class="input" type="tel">
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-link">Auftrag erstellen</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-text">Abbrechen</button>
                     </div>
                 </div>
             </form>
