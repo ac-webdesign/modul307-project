@@ -15,7 +15,7 @@ class Repairs
     public $db;
 
     // Konstruktor
-    function __construct($firstName = null, $lastName = null, $email = null, $telephone = null, int $urgent = null, $isDone = null, $startDate = null, $toolId = null)
+    function __construct($firstName = null, $lastName = null, $email = null, $telephone = null, $urgent = null, $isDone = null, $startDate = null, $toolId = null)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -79,8 +79,7 @@ class Repairs
         $updateStatement->bindParam(':urgent', $this->urgent);
         $updateStatement->bindParam(':isDone', $this->isDone);
         $updateStatement->bindParam(':startDate', $this->startDate);
-        $updateStatement->bindParam(':toolId', $this->toolId);      
+        $updateStatement->bindParam(':toolId', $this->toolId);
         return $updateStatement->execute();
     }
-
 }

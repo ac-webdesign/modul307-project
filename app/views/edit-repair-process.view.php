@@ -17,7 +17,7 @@
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
-                        <input class="input" type="number" name="id" id="id" value="<?= $repair['id']; ?>" disabled>
+                        <input class="input" type="number" name="id" id="id" value="<?= $repair['id']; ?>" readonly>
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@
                         <button type="submit" class="button is-link">Änderungen speichern</button>
                     </div>
                     <div class="control">
-                        <button class="button is-text">Abbrechen</button>
+                        <a href="overview" class="button is-text">Abbrechen</a>
                     </div>
                 </div>
             </form>
