@@ -26,7 +26,7 @@ class Repairs
         $this->isDone = $isDone;
         $this->startDate = $startDate;
         $this->endDate = $startDate + $urgent;
-        $this->tool = new Tools($tool);
+        $this->tool = $tool;
         $this->db = connectToDatabase();
     }
 
