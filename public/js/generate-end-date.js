@@ -25,7 +25,7 @@ var urgents = [
 ]
 
 function generateEndDate() {
-    var newStartDate = new Date(this.value);
+    var newStartDate = new Date(document.querySelector('#start-date').value);
     var selectedUrgent = document.getElementById('urgent').value;
     var endDate = document.querySelector('#end-date');
 
