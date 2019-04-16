@@ -24,3 +24,9 @@ function post(string $key, $default = '')
 {
     return $_POST[$key] ?? $default;
 }
+
+// Enddatum berechnen
+function generateEndDate($repair)
+{
+    return date('d.m.y', strtotime($repair['startdate'] . " + " . $repair['urgent'] . " days"));
+}
