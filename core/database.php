@@ -12,7 +12,7 @@ function connectToDatabase()
         //     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         //     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         // ]);
-        return new PDO('mysql:localhost', 'root', '', [
+        return new PDO('mysql:host=localhost', 'kurseictbz_30702', 'root', '', [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         ]);
