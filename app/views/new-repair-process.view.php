@@ -12,7 +12,7 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Auftrag erstellen</h1>
-            <form action="app/controllers/add-repair-process.controller.php" method="POST">
+            <form action="add" method="POST">
                 <legend class="subtitle">
                     <strong>Allgemein</strong>
                 </legend>
