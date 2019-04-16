@@ -28,15 +28,6 @@ class Repairs
         $this->db = connectToDatabase();
     }
 
-    // Methoden
-    public function getById(int $id)
-    {
-        $getByIdStatement = $this->db->prepare('SELECT * FROM `repairs` WHERE id = :id ');
-        $getByIdStatement->bindParam(':id', $id);
-        $getByIdStatement->execute();
-        return $getByIdStatement->fetch();
-    }
-
     public function create()
     {
         $insertStatement = $this->db->prepare(

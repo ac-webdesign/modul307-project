@@ -54,7 +54,7 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>" selected="<?= $tool['id'] === $selectedTool['id'] ? true : false ?>"><?= $tool['name'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" selected="<?= $tool['id'] === $selectedTool['id'] ? 'true' : 'false' ?>"><?= $tool['id'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -71,11 +71,11 @@
                 <div class="field">
                     <label class="label" for="end-date">Ende:</label>
                     <div class="control">
-                        <input class="input" type="text" name="end-date" id="end-date" disabled>
+                        <input class="input" type="text" name="end-date" id="end-date" value="<?= generateEndDate($repair); ?>" disabled>
                     </div>
                 </div>
                 <br>
-                <legend class="subtitle">
+                <legend class=" subtitle">
                     <strong>Auftraggeber</strong>
                 </legend>
 

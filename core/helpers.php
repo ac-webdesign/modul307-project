@@ -26,6 +26,18 @@ function post(string $key, $default = '')
 }
 
 /**
+ * Hollt alle Aufträge per ID aus DB
+ */
+function getRepairById(int $id)
+{
+    $db = connectToDatabase();
+    $getByIdStatement = $db->prepare('SELECT * FROM `repairs` WHERE id = :id ');
+    $getByIdStatement->bindParam(':id', $id);
+    $getByIdStatement->execute();
+    return $getByIdStatement->fetch();
+}
+
+/**
  * Hollt alle Werkzeuge aus DB
  */
 function getAllTools()
