@@ -24,7 +24,7 @@ class Repairs
         $this->urgent = $urgent;
         $this->isDone = $isDone === "Auftrag ist abgeschlossen" ? true : false;
         $this->startDate = $startDate;
-        $this->tool = $tool;
+        $this->tool = $toolId;
         $this->db = connectToDatabase();
     }
 
