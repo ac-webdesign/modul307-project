@@ -31,11 +31,9 @@
                     <div class="control">
                         <div class="select">
                             <select id="urgent" name="urgent" required>
-                                <option value="sehr tief">sehr tief</option>
-                                <option value="tief">tief</option>
-                                <option value="normal">normal</option>
-                                <option value="hoch">hoch</option>
-                                <option value="sehr hoch">sehr hoch</option>
+                                <?php foreach ($urgents as $urgent) : ?>
+                                    <option value="<?= $urgent['name'] ?>"><?= $urgent['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -105,7 +103,7 @@
                         <input id="tel" name="tel" class="input" type="tel">
                     </div>
                 </div>
-                
+
                 <div class="field is-grouped">
                     <div class="control">
                         <button type="submit" class="button is-link">Auftrag erstellen</button>

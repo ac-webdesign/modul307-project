@@ -38,11 +38,9 @@
                     <div class="control">
                         <div class="select">
                             <select name="urgent" id="urgent" required>
-                                <option value="sehr tief">sehr tief</option>
-                                <option value="tief">tief</option>
-                                <option value="normal">normal</option>
-                                <option value="hoch">hoch</option>
-                                <option value="sehr hoch">sehr hoch</option>
+                                <?php foreach ($urgents as $urgent) : ?>
+                                    <option value="<?= $urgent['name'] ?>"><?= $urgent['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -54,7 +52,7 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>" selected="<?= $tool['id'] === $selectedTool['id'] ? 'true' : 'false' ?>"><?= $tool['id'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" selected="<?= $tool['id'] === $selectedTool['id'] ? 'true' : 'false' ?>"><?= $tool['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

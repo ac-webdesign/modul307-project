@@ -1,4 +1,5 @@
 <?php
+$urgents = getAllUrgents();
 $tools = getAllTools();
 $repair = getRepairById($_GET['id']);
 $selectedTool = getToolById($repair['fk_tool']);
