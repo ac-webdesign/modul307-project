@@ -14,13 +14,4 @@ class Tools
         $this->name = $name;
         $this->db = connectToDatabase();
     }
-
-    // Methoden
-    public function getById(int $id)
-    {
-        $getByIdStatement = $this->db->prepare('SELECT * FROM `tools` WHERE id = :id ');
-        $getByIdStatement->bindParam(':id', $id);
-        $getByIdStatement->execute();
-        return $getByIdStatement->fetch();
-    }
 }

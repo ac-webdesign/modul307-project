@@ -1,4 +1,5 @@
 <?php
+// TODO: Validierung
 $repairId = $_POST['id'];
 $tool = getToolByName($_POST['tool']);
 $toolId = (int)$tool['id'];

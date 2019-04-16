@@ -1,4 +1,5 @@
 <?php
+// Daten abrufen
 $urgents = getAllUrgents();
 $tools = getAllTools();
 $repair = getRepairById($_GET['id']);

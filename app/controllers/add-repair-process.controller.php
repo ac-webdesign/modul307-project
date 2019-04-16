@@ -1,4 +1,5 @@
 <?php
+// TODO: Validierung
 $startDate = $_POST['start-date'];
 $urgent = $_POST['urgent'];
 $isDone = $_POST['is-done'];
