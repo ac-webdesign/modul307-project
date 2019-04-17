@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($errors) === 0) {
-        $repair = new Repairs($firstname, $lastname, $email, $telephone, $urgent, $isDone, $startDate, getToolByName($tool)['id']);
+        $repair = new Repairs($firstname, $lastname, $email, $telephone, getUrgentDays($urgent), $isDone, $startDate, getToolByName($tool)['id']);
 
         if ($repair->update($repairId)) {
             header('Location: overview');

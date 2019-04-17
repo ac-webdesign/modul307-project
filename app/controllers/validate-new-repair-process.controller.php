@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($errors) === 0) {
-        $newRepairProcess = new Repairs($firstname, $lastname, $email, $telephone, $urgentDays, $isDone, $startDate, $selectedTool);
+        $newRepairProcess = new Repairs($firstname, $lastname, $email, $telephone, getUrgentDays($urgentDays), $isDone, $startDate, $selectedTool);
         $newRepairProcess->create();
         header('Location: overview');
     } else {
