@@ -9,7 +9,7 @@ $startdate = $_POST['start-date'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
-$telephone = $_POST['telephone'];
+$telephone = $_POST['tel'];
 $urgent = getUrgentDays($urgent);
 
 $repair = new Repairs($firstname, $lastname, $email, $telephone, $urgent, $isDone, $startdate, $toolId);
