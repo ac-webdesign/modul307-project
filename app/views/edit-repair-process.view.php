@@ -13,7 +13,7 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Auftrag bearbeiten</h1>
-            <form action="update" method="POST">
+            <form id="form" action="update" method="POST">
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
@@ -89,28 +89,28 @@
                 <div class="field">
                     <label class="label" for="firstname">Vorname:</label>
                     <div class="control">
-                        <input class="input" type="text" name="firstname" id="firstname" value="<?= $repair['firstname']; ?>" required>
+                        <input id="firstname" name="firstname" class="input" type="text" value="<?= $repair['firstname']; ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="lastname">Nachname:</label>
                     <div class="control">
-                        <input class="input" type="text" name="lastname" id="lastname" value="<?= $repair['lastname']; ?>" required>
+                        <input id="lastname" name="lastname" class="input" type="text" value="<?= $repair['lastname']; ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="email">Email:</label>
                     <div class="control">
-                        <input class="input" type="email" name="email" id="email" value="<?= $repair['email']; ?>" required>
+                        <input id="email" name="email" class="input" type="email" value="<?= $repair['email']; ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
-                    <label class="label" for="telephone">Telefon:</label>
+                    <label class="label" for="tel">Telefon:</label>
                     <div class="control">
-                        <input class="input" type="tel" name="telephone" id="telephone" value="<?= $repair['telephone']; ?>">
+                        <input id="tel" name="tel" class="input" type="tel" value="<?= $repair['telephone']; ?>">
                     </div>
                 </div>
 
@@ -127,6 +127,7 @@
     </section>
 
     <script src="public/js/generate-end-date.js"></script>
+    <script src="public/js/validation.js"></script>
 </body>
 
 </html>
