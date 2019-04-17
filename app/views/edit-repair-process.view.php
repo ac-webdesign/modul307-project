@@ -11,8 +11,19 @@
 
 <body>
     <section class="section">
+        <nav class="breadcrumb is-centered">
+            <ul>
+                <li>
+                    <a href="overview">Übersicht</a>
+                </li>
+                <li class="is-active">
+                    <a href="#">Auftrag <?= $repair['id']; ?> bearbeiten</a>
+                </li>
+            </ul>
+        </nav>
+
         <div class="container">
-            <h1 class="title">Auftrag bearbeiten</h1>
+            <h1 class="title">Auftrag <?= $repair['id']; ?> bearbeiten</h1>
             <form id="form" action="update" method="POST">
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
@@ -27,22 +38,20 @@
                         <input class="input" type="date" name="start-date" id="start-date" value="<?= date("Y-m-d", strtotime($repair['startdate'])); ?>" required>
                     </div>
                 </div>
-                
+
                 <div class="field">
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
                             <select name="urgent" id="urgent" required>
                                 <?php foreach ($urgents as $urgent) : ?>
-                                    <option value="<?= $urgent['name'] ?>" 
-                                    <?php
-                                        if($urgent['days'] == $repair['urgent'])
-                                        {
-                                            echo("selected");
-                                        }
-                                    ?>
-                                    >
-                                    <?= $urgent['name'] ?></option>
+                                    <option value="<?= $urgent['name'] ?>" <?php
+                                                                            if ($urgent['days'] == $repair['urgent']) {
+                                                                                echo ("selected");
+                                                                            }
+                                                                            ?>>
+                                        <?= $urgent['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -61,8 +70,16 @@
                     <div class="control">
                         <div class="select">
                             <select id="is-done" name="is-done" required>
-                                <option value="Auftrag ist abgeschlossen" <?php if($repair['is_done'] === '1'){echo("selected");}?>>Auftrag ist abgeschlossen</option>
-                                <option value="Auftrag ist pendent" <?php if($repair['is_done'] === '0'){echo("selected");}?>>Auftrag ist pendent</option>
+                                <option value="Auftrag ist abgeschlossen" <?php if ($repair['is_done'] === '1') {
+                                                                                echo ("selected");
+                                                                            } ?>>
+                                    Auftrag ist abgeschlossen
+                                </option>
+                                <option value="Auftrag ist pendent" <?php if ($repair['is_done'] === '0') {
+                                                                        echo ("selected");
+                                                                    } ?>>
+                                    Auftrag ist pendent
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -74,7 +91,11 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>" <?php if($tool['id'] === $selectedTool['id']){echo("selected");}?>><?= $tool['name'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" <?php if ($tool['id'] === $selectedTool['id']) {
+                                                                                echo ("selected");
+                                                                            } ?>>
+                                        <?= $tool['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
