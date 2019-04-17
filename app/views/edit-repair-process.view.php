@@ -17,7 +17,7 @@
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
-                        <input class="input" type="number" name="id" id="id" value="<?= $repair['id']; ?>" readonly>
+                        <input class="input is-disabled" type="number" name="id" id="id" value="<?= $repair['id']; ?>" readonly>
                     </div>
                 </div>
 
@@ -32,10 +32,17 @@
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
-                            <!-- TODO YNk: Warum wird falsches von DB ausgewählt -->
                             <select name="urgent" id="urgent" required>
                                 <?php foreach ($urgents as $urgent) : ?>
-                                    <option value="<?= $urgent['name'] ?>" <?php if($urgent['days'] === $repair['urgent']){echo("selected");}?>><?= $urgent['name'] ?></option>
+                                    <option value="<?= $urgent['name'] ?>" 
+                                    <?php
+                                        if($urgent['days'] == $repair['urgent'])
+                                        {
+                                            echo("selected");
+                                        }
+                                    ?>
+                                    >
+                                    <?= $urgent['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
