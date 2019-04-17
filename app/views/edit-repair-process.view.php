@@ -32,7 +32,6 @@
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
-                            <!-- TODO YNk: Warum wird falsches von DB ausgewählt -->
                             <select name="urgent" id="urgent" required>
                                 <?php foreach ($urgents as $urgent) : ?>
                                     <option value="<?= $urgent['name'] ?>" 
