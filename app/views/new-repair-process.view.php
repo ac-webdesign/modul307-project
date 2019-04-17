@@ -14,7 +14,7 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Auftrag erstellen</h1>
-            <form action="add" method="POST">
+            <form id="form" action="add" method="POST">
                 <legend class="subtitle">
                     <strong>Allgemein</strong>
                 </legend>
@@ -117,6 +117,7 @@
     </section>
 
     <script src="public/js/generate-end-date.js"></script>
+    <script src="public/js/validation.js"></script>
 </body>
 
 </html>
