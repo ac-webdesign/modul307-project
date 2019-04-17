@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Reparaturauftrag bearbeiten</title>
-    <link rel="stylesheet" href="public/styles/bulma.css">
+    <link rel="stylesheet" href="public/styles/app.scss">
 </head>
 
 <body>
@@ -24,19 +24,20 @@
 
         <div class="container">
             <h1 class="title">Auftrag <?= $repair['id']; ?> bearbeiten</h1>
-            <?php if(count($errors) > 0): ?>
+            <?php if (count($errors) > 0) : ?>
                 <ul>
-                    <?php foreach($errors as $error): ?>
+                    <?php foreach ($errors as $error) : ?>
                         <li><?= $error ?></li>
                     <?php endforeach; ?>
                 </ul>
                 <br>
             <?php endif; ?>
+
             <form id="form" action="validate" method="POST">
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
-                        <input class="input is-disabled" type="number" name="id" id="id" value="<?= $repair['id']; ?>" readonly>
+                        <input class="input" type="number" name="id" id="id" value="<?= $repair['id']; ?>" readonly>
                     </div>
                 </div>
 
@@ -79,8 +80,10 @@
                         <div class="select">
                             <select id="is_done" name="is_done" required>
                                 <?php foreach (getAllStates() as $state) : ?>
-                                    <option value="<?= $state['name'] ?>" <?php if($state['id'] == $repair['is_done']){echo("selected");}?>><?= $state['name'] ?></option>
-                                <?php endforeach; ?>                                
+                                    <option value="<?= $state['name'] ?>" <?php if ($state['id'] == $repair['is_done']) {
+                                                                                echo ("selected");
+                                                                            } ?>><?= $state['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
