@@ -24,7 +24,16 @@
 
         <div class="container">
             <h1 class="title">Auftrag erstellen</h1>
-            <form id="form" action="add" method="POST">
+            <?php if (count($errors) > 0) : ?>
+                <ul>
+                    <?php foreach ($errors as $error) : ?>
+                        <li><?= $error ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <br>
+            <?php endif; ?>
+
+            <form id="form" action="validate-new" method="POST">
                 <legend class="subtitle">
                     <strong>Allgemein</strong>
                 </legend>

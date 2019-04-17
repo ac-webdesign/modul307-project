@@ -2,7 +2,6 @@
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $repairId = $repair['id'] = $_POST['id'];
     $startDate = $repair['startdate'] = trim($_POST['startdate'] ?? '');
     $urgent = $repair['urgent'] = trim($_POST['urgent'] ?? '');
     $isDone = $repair['is_done'] = trim($_POST['is_done'] ?? '');
@@ -10,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstname = $repair['firstname'] = trim($_POST['firstname'] ?? '');
     $lastname = $repair['lastname'] = trim($_POST['lastname'] ?? '');
     $email = $repair['email'] = trim($_POST['email'] ?? '');
-    $telephone = $repair['telephone'] = trim($_POST['telephone'] ?? '');
+    $telephone = $repair['telephone'] = trim($_POST['tel'] ?? '');
 
     if ($startDate === '') {
         $errors[] = 'Bitte geben Sie ein Start-Datum ein.';
@@ -47,17 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($errors) === 0) {
-        $repair = new Repairs($firstname, $lastname, $email, $telephone, $urgent, $isDone, $startDate, getToolByName($tool)['id']);
-
-        if ($repair->update($repairId)) {
-            header('Location: overview');
-        }
+        $newRepairProcess = new Repairs($firstname, $lastname, $email, $tel, $urgent, $isDone, $startDate, $tool);
+        $newRepairProcess->create();
+        header('Location: overview');
     } else {
         $urgents = getAllUrgents();
         $tools = getAllTools();
-        $selectedTool = getToolByName($repair['tool']);
 
-        require 'app/views/edit-repair-process.view.php';
+        require 'app/views/new-repair-process.view.php';
     }
 } else {
     header('Location: overview');

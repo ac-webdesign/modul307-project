@@ -33,7 +33,7 @@
                 <br>
             <?php endif; ?>
 
-            <form id="form" action="validate" method="POST">
+            <form id="form" action="validate-edit" method="POST">
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">

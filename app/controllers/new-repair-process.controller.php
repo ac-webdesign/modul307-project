@@ -1,5 +1,6 @@
 <?php
 // Daten abrufen
+$errors = [];
 $urgents = getAllUrgents();
 $tools = getAllTools();
 
