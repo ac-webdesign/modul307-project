@@ -32,7 +32,6 @@ function validateEmail(controlId) {
     var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regexEmail.test(control.value.trim()) === false) {
         control.style.border = 'thick solid red';
-        control.value = 'Bitte korrektes Format für Email';
         return false;
     }
     return true;
@@ -42,7 +41,6 @@ function validateTel(controlId) {
     var control = document.querySelector(controlId);
     if (isNaN(control.value.trim()) === true) {
         control.style.border = 'thick solid red';
-        control.value = 'Bitte korrektes Format für Telefon';
         return false;
     }
     return true;
