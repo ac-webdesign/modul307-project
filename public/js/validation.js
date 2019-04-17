@@ -23,8 +23,10 @@ function controlHasValue(controlId) {
         control.style.border = 'thick solid red';
         control.value = 'Bitte Feld ausfüllen';
         return false;
+    } else {
+        control.style.border = '1px solid transparent';
+        return true;
     }
-    return true;
 }
 
 function validateControlWithRegex(controlId, regexString) {
@@ -33,6 +35,8 @@ function validateControlWithRegex(controlId, regexString) {
     if (regex.test(control.value.trim()) === false) {
         control.style.border = 'thick solid red';
         return false;
+    } else {
+        control.style.border = '1px solid transparent';
+        return true;
     }
-    return true;
 }
