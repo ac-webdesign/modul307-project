@@ -3,9 +3,9 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $startDate = $repair['startdate'] = trim($_POST['startdate'] ?? '');
-    $urgent = $repair['urgent'] = trim($_POST['urgent'] ?? '');
+    $urgentDays = $repair['urgent'] = trim($_POST['urgent'] ?? '');
     $isDone = $repair['is_done'] = trim($_POST['is_done'] ?? '');
-    $tool = $repair['tool'] = trim($_POST['tool'] ?? '');
+    $selectedTool = $repair['tool'] = trim($_POST['tool'] ?? '');
     $firstname = $repair['firstname'] = trim($_POST['firstname'] ?? '');
     $lastname = $repair['lastname'] = trim($_POST['lastname'] ?? '');
     $email = $repair['email'] = trim($_POST['email'] ?? '');
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Bitte geben Sie ein Start-Datum ein.';
     }
 
-    if ($urgent === '') {
+    if ($urgentDays === '') {
         $errors[] = 'Bitte wählen Sie eine Dringlichkeit aus.';
     }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Bitte wählen Sie einen Status aus.';
     }
 
-    if ($tool === '') {
+    if ($selectedTool === '') {
         $errors[] = 'Bitte wählen Sie ein Werkzeug aus.';
     }
 
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (count($errors) === 0) {
-        $newRepairProcess = new Repairs($firstname, $lastname, $email, $tel, $urgent, $isDone, $startDate, $tool);
+        $newRepairProcess = new Repairs($firstname, $lastname, $email, $telephone, $urgentDays, $isDone, $startDate, $selectedTool);
         $newRepairProcess->create();
         header('Location: overview');
     } else {

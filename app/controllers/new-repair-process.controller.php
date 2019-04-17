@@ -1,6 +1,12 @@
 <?php
-// Daten abrufen
 $errors = [];
+
+//Workarround damit Validierung funktioniert (Standarddeklaraton geben)
+$urgentDays = '';
+$isDone = '';
+$selectedTool = '';
+
+// Daten abrufen
 $urgents = getAllUrgents();
 $tools = getAllTools();
 

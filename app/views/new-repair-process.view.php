@@ -41,7 +41,7 @@
                 <div class="field">
                     <label class="label" for="startdate">Start:</label>
                     <div class="control">
-                        <input id="startdate" name="startdate" class="input" type="date" value="<?= date('Y-m-d'); ?>" required>
+                        <input id="startdate" name="startdate" class="input" type="date" value="<?= $startDate ?? date('Y-m-d'); ?>" required>
                     </div>
                 </div>
 
@@ -51,7 +51,13 @@
                         <div class="select">
                             <select id="urgent" name="urgent" required>
                                 <?php foreach ($urgents as $urgent) : ?>
-                                    <option value="<?= $urgent['name'] ?>"><?= $urgent['name'] ?></option>
+                                    <option value="<?= $urgent['name'] ?>" <?php
+                                                                            if ($urgent['name'] == $urgentDays ?? '') {
+                                                                                echo ("selected");
+                                                                            }
+                                                                            ?>>
+                                        <?= $urgent['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -61,7 +67,7 @@
                 <div class="field">
                     <label class="label" for="end-date">Ende:</label>
                     <div class="control">
-                        <input id="end-date" name="end-date" class="input" type="text" disabled>
+                        <input id="end-date" name="end-date" class="input" type="text" value="<?= generateEndDate($startDate ?? date('Y-m-d')) ?>" disabled>
                     </div>
                 </div>
 
@@ -70,8 +76,11 @@
                     <div class="control">
                         <div class="select">
                             <select id="is_done" name="is_done" required>
-                                <option value="Auftrag ist abgeschlossen">Auftrag ist abgeschlossen</option>
-                                <option value="Auftrag ist pendent">Auftrag ist pendent</option>
+                                <?php foreach (getAllStates() as $state) : ?>
+                                    <option value="<?= $state['name'] ?>" <?php if ($state['name'] == $isDone ?? '') {
+                                                                                echo ("selected");
+                                                                            } ?>><?= $state['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -83,7 +92,11 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>"><?= $tool['name'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" <?php if ($tool['name'] === $selectedTool ?? '') {
+                                                                                echo ("selected");
+                                                                            } ?>>
+                                        <?= $tool['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -98,28 +111,28 @@
                 <div class="field">
                     <label class="label" for="firstname">Vorname:</label>
                     <div class="control">
-                        <input id="firstname" name="firstname" class="input" type="text" required>
+                        <input id="firstname" name="firstname" class="input" type="text" value="<?= $firstname ?? '' ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="lastname">Nachname:</label>
                     <div class="control">
-                        <input id="lastname" name="lastname" class="input" type="text" required>
+                        <input id="lastname" name="lastname" class="input" type="text" value="<?= $lastname ?? '' ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="email">Email:</label>
                     <div class="control">
-                        <input id="email" name="email" class="input" type="email" required>
+                        <input id="email" name="email" class="input" type="email" value="<?= $email ?? '' ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="tel">Telefon:</label>
                     <div class="control">
-                        <input id="tel" name="tel" class="input" type="tel">
+                        <input id="tel" name="tel" class="input" value="<?= $telephone ?? '' ?>" type="tel">
                     </div>
                 </div>
 
@@ -136,7 +149,7 @@
     </section>
 
     <script src="public/js/generate-end-date.js"></script>
-    <script src="public/js/validation.js"></script>
+    <!-- <script src="public/js/validation.js"></script> -->
 </body>
 
 </html>
