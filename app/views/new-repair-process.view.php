@@ -149,7 +149,7 @@
     </section>
 
     <script src="public/js/generate-end-date.js"></script>
-    <!-- <script src="public/js/validation.js"></script> -->
+    <script src="public/js/validation.js"></script>
 </body>
 
 </html>
