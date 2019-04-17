@@ -39,7 +39,8 @@ function validateEmail(controlId) {
 
 function validateTel(controlId) {
     var control = document.querySelector(controlId);
-    if (isNaN(control.value.trim()) === true) {
+    var regexTel = /^[\d\s\-\+\(\)\/]*$/;
+    if (regexTel.test(control.value.trim()) === false) {
         control.style.border = 'thick solid red';
         return false;
     }
