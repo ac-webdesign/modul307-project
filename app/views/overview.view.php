@@ -61,7 +61,7 @@
                                     <strong>Ausleih Status:</strong>
                                 </div>
                                 <div class="column is-one-third">
-                                    <i class="<?= $repair['is_done'] === '1' ? 'icon-thumbs-up' : 'icon-thumbs-down' ?>"></i>
+                                    <i class="<?= generateEndDate($repair) <= date("d.m.y") ? 'icon-thumbs-up' : 'icon-thumbs-down' ?>"></i>
                                 </div>
                             </div>
                         </div>
