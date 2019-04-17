@@ -61,8 +61,7 @@
                                     <strong>Ausleih Status:</strong>
                                 </div>
                                 <div class="column is-one-third">
-                                    <!-- TODO AC: Richtige Berechnung des Ausleihstatus -->
-                                    <i class="<?= generateEndDate($repair) <= date("d.m.y") ? 'icon-thumbs-up' : 'icon-thumbs-down' ?>"></i>
+                                    <i class="<?= getLoanDeadline($repair) >= '0' ? 'icon-thumbs-up' : 'icon-thumbs-down' ?>"></i>
                                 </div>
                             </div>
                         </div>

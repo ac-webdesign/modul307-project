@@ -11,8 +11,19 @@
 
 <body>
     <section class="section">
+        <nav class="breadcrumb is-centered">
+            <ul>
+                <li>
+                    <a href="overview">Übersicht</a>
+                </li>
+                <li class="is-active">
+                    <a href="#">Auftrag <?= $repair['id']; ?> bearbeiten</a>
+                </li>
+            </ul>
+        </nav>
+
         <div class="container">
-            <h1 class="title">Auftrag bearbeiten</h1>
+            <h1 class="title">Auftrag <?= $repair['id']; ?> bearbeiten</h1>
             <?php if(count($errors) > 0): ?>
                 <ul>
                     <?php foreach($errors as $error): ?>
@@ -21,7 +32,7 @@
                 </ul>
                 <br>
             <?php endif; ?>
-            <form action="validate" method="POST">
+            <form id="form" action="validate" method="POST">
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
@@ -35,22 +46,20 @@
                         <input class="input" type="date" name="startdate" id="startdate" value="<?= date("Y-m-d", strtotime($repair['startdate'])); ?>" required>
                     </div>
                 </div>
-                
+
                 <div class="field">
                     <label class="label" for="urgent">Dringlichkeit:</label>
                     <div class="control">
                         <div class="select">
                             <select name="urgent" id="urgent" required>
                                 <?php foreach ($urgents as $urgent) : ?>
-                                    <option value="<?= $urgent['name'] ?>" 
-                                    <?php
-                                        if($urgent['days'] == $repair['urgent'])
-                                        {
-                                            echo("selected");
-                                        }
-                                    ?>
-                                    >
-                                    <?= $urgent['name'] ?></option>
+                                    <option value="<?= $urgent['name'] ?>" <?php
+                                                                            if ($urgent['days'] == $repair['urgent']) {
+                                                                                echo ("selected");
+                                                                            }
+                                                                            ?>>
+                                        <?= $urgent['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -83,7 +92,11 @@
                         <div class="select">
                             <select id="tool" name="tool" required>
                                 <?php foreach ($tools as $tool) : ?>
-                                    <option value="<?= $tool['name'] ?>" <?php if($tool['id'] === $selectedTool['id']){echo("selected");}?>><?= $tool['name'] ?></option>
+                                    <option value="<?= $tool['name'] ?>" <?php if ($tool['id'] === $selectedTool['id']) {
+                                                                                echo ("selected");
+                                                                            } ?>>
+                                        <?= $tool['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -98,28 +111,28 @@
                 <div class="field">
                     <label class="label" for="firstname">Vorname:</label>
                     <div class="control">
-                        <input class="input" type="text" name="firstname" id="firstname" value="<?= $repair['firstname']; ?>" required>
+                        <input id="firstname" name="firstname" class="input" type="text" value="<?= $repair['firstname']; ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="lastname">Nachname:</label>
                     <div class="control">
-                        <input class="input" type="text" name="lastname" id="lastname" value="<?= $repair['lastname']; ?>" required>
+                        <input id="lastname" name="lastname" class="input" type="text" value="<?= $repair['lastname']; ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label" for="email">Email:</label>
                     <div class="control">
-                        <input class="input" type="email" name="email" id="email" value="<?= $repair['email']; ?>" required>
+                        <input id="email" name="email" class="input" type="email" value="<?= $repair['email']; ?>" required>
                     </div>
                 </div>
 
                 <div class="field">
-                    <label class="label" for="telephone">Telefon:</label>
+                    <label class="label" for="tel">Telefon:</label>
                     <div class="control">
-                        <input class="input" type="tel" name="telephone" id="telephone" value="<?= $repair['telephone']; ?>">
+                        <input id="tel" name="tel" class="input" type="tel" value="<?= $repair['telephone']; ?>">
                     </div>
                 </div>
 
@@ -136,6 +149,7 @@
     </section>
 
     <script src="public/js/generate-end-date.js"></script>
+    <script src="public/js/validation.js"></script>
 </body>
 
 </html>
