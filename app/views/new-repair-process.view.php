@@ -30,9 +30,9 @@
                 </legend>
 
                 <div class="field">
-                    <label class="label" for="start-date">Start:</label>
+                    <label class="label" for="startdate">Start:</label>
                     <div class="control">
-                        <input id="start-date" name="start-date" class="input" type="date" value="<?= date('Y-m-d'); ?>" required>
+                        <input id="startdate" name="startdate" class="input" type="date" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
 
@@ -57,10 +57,10 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="is-done">Status:</label>
+                    <label class="label" for="is_done">Status:</label>
                     <div class="control">
                         <div class="select">
-                            <select id="is-done" name="is-done" required>
+                            <select id="is_done" name="is_done" required>
                                 <option value="Auftrag ist abgeschlossen">Auftrag ist abgeschlossen</option>
                                 <option value="Auftrag ist pendent">Auftrag ist pendent</option>
                             </select>

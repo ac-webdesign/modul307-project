@@ -24,7 +24,15 @@
 
         <div class="container">
             <h1 class="title">Auftrag <?= $repair['id']; ?> bearbeiten</h1>
-            <form id="form" action="update" method="POST">
+            <?php if(count($errors) > 0): ?>
+                <ul>
+                    <?php foreach($errors as $error): ?>
+                        <li><?= $error ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <br>
+            <?php endif; ?>
+            <form id="form" action="validate" method="POST">
                 <div class="field">
                     <label class="label" for="id">Auftrags Id:</label>
                     <div class="control">
@@ -33,9 +41,9 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="start-date">Start:</label>
+                    <label class="label" for="startdate">Start:</label>
                     <div class="control">
-                        <input class="input" type="date" name="start-date" id="start-date" value="<?= date("Y-m-d", strtotime($repair['startdate'])); ?>" required>
+                        <input class="input" type="date" name="startdate" id="startdate" value="<?= date("Y-m-d", strtotime($repair['startdate'])); ?>" required>
                     </div>
                 </div>
 
@@ -66,20 +74,13 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="is-done">Status:</label>
+                    <label class="label" for="is_done">Status:</label>
                     <div class="control">
                         <div class="select">
-                            <select id="is-done" name="is-done" required>
-                                <option value="Auftrag ist abgeschlossen" <?php if ($repair['is_done'] === '1') {
-                                                                                echo ("selected");
-                                                                            } ?>>
-                                    Auftrag ist abgeschlossen
-                                </option>
-                                <option value="Auftrag ist pendent" <?php if ($repair['is_done'] === '0') {
-                                                                        echo ("selected");
-                                                                    } ?>>
-                                    Auftrag ist pendent
-                                </option>
+                            <select id="is_done" name="is_done" required>
+                                <?php foreach (getAllStates() as $state) : ?>
+                                    <option value="<?= $state['name'] ?>" <?php if($state['id'] == $repair['is_done']){echo("selected");}?>><?= $state['name'] ?></option>
+                                <?php endforeach; ?>                                
                             </select>
                         </div>
                     </div>
