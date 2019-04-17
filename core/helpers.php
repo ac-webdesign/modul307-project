@@ -121,5 +121,15 @@ function getUrgentDays(string $urgent)
  */
 function generateEndDate($repair)
 {
-    return date('d.m.y', strtotime($repair['startdate'] . " + " . $repair['urgent'] . " days"));
+    return date('d.m.y', strtotime($repair['startdate'] . '+' . $repair['urgent'] . " days"));
+}
+
+
+/**
+ * Ausleihstatus berechnen
+ */
+function getLoanDeadline($repair)
+{
+    $diffStartAndToday =  date('d', abs(strtotime($repair['startdate']) - strtotime(date('y.m.d'))));
+    return date('d', abs(strtotime(date('d', $repair['urgent'])) - strtotime($diffStartAndToday)));
 }
