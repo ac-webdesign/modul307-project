@@ -109,7 +109,7 @@
                         <button type="submit" class="button is-link">Auftrag erstellen</button>
                     </div>
                     <div class="control">
-                        <a href="overview" class="button is-text">Abbrechen</button>
+                        <a href="overview" class="button is-text">Abbrechen</a>
                     </div>
                 </div>
             </form>
