@@ -17,7 +17,7 @@
                     <h1 class="title">Reparaturwerkstatt</h1>
                 </div>
                 <div class="column">
-                    <a href="new" class="button is-success"><i class="icon-new"></i>Neuer Auftrag erstellen</a>
+                    <a href="new" class="button is-success"><i class="icon-plus-circled"></i>Neuer Auftrag erstellen</a>
                 </div>
             </div>
             <h2 class="subtitle">Vorgänge</h2>
@@ -50,7 +50,7 @@
                             </div>
                             <div class="columns">
                                 <div class="column is-one-third">
-                                    <strong>Reparatur voraussichtlich abgeschlossen am:</strong>
+                                    <strong>Reparatur abgeschlossen am:</strong>
                                 </div>
                                 <div class="column is-one-third">
                                     <?= generateEndDate($repair); ?>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="columns">
                                 <div class="column is-one-third">
-                                    <strong>Reparatur Status:</strong>
+                                    <strong>Ausleih Status:</strong>
                                 </div>
                                 <div class="column is-one-third">
                                     <i class="<?= $repair['is_done'] === '1' ? 'icon-thumbs-up' : 'icon-thumbs-down' ?>"></i>
