@@ -102,6 +102,21 @@ function getAllUrgents()
     ];
 }
 
+function getAllStates()
+{
+    // Urgents Array mit einzelne Urgent-Array
+    return [
+        'state1' => array(
+            'name' => 'Auftrag ist abgeschlossen',
+            'id' => 1,
+        ),
+        'state2' => array(
+            'name' => 'Auftrag ist pendent',
+            'id' => 0,
+        ),
+    ];
+}
+
 /**
  * Hollt spezifische Urgent mit den Tagen
  */

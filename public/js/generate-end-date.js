@@ -1,4 +1,4 @@
-var startDate = document.querySelector('#start-date');
+var startDate = document.querySelector('#startdate');
 
 // Add Event Listeners to form controls
 document.addEventListener('DOMContentLoaded', generateEndDate);

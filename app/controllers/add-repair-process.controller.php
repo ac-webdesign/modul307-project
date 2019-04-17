@@ -1,8 +1,8 @@
 <?php
 // TODO: Validierung
-$startDate = $_POST['start-date'];
+$startDate = $_POST['startdate'];
 $urgent = $_POST['urgent'];
-$isDone = $_POST['is-done'];
+$isDone = $_POST['is_done'];
 $tool = getToolByName($_POST['tool']);
 $toolId = $tool['id'];
 $firstname = trim($_POST['firstname']);
