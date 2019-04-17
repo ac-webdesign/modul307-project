@@ -1,5 +1,5 @@
 document.querySelector('#form').addEventListener('submit', function (e) {
-    errors = [];
+    var errors = [];
 
     controlHasValue('#start-date') === true ? true : errors.push('start-date not passed');
     controlHasValue('#urgent') === true ? true : errors.push('urgent not passed');
@@ -10,6 +10,8 @@ document.querySelector('#form').addEventListener('submit', function (e) {
     controlHasValue('#lastname') === true ? true : errors.push('lastname not passed');
     controlHasValue('#email') === true ? true : errors.push('email not passed');
 
+    console.log(errors);
+    e.preventDefault();
     if (errors.length > 0) {
         e.preventDefault();
     }
