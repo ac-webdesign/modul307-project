@@ -9,8 +9,8 @@ document.querySelector('#form').addEventListener('submit', function (e) {
     controlHasValue('#firstname') === true ? true : errors.push('firstname not passed');
     controlHasValue('#lastname') === true ? true : errors.push('lastname not passed');
     controlHasValue('#email') === true ? true : errors.push('email not passed');
-    validateEmail('#email') === true ? true : errors.push('email not correct format');
-    validateTel('#tel') === true ? true : errors.push('tel not correct format');
+    validateControlWithRegex('#email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/) === true ? true : errors.push('email not correct format');
+    validateControlWithRegex('#tel', /^[\d\s\-\+\(\)\/]*$/) === true ? true : errors.push('tel not correct format');
 
     if (errors.length > 0) {
         e.preventDefault();
@@ -27,20 +27,10 @@ function controlHasValue(controlId) {
     return true;
 }
 
-function validateEmail(controlId) {
+function validateControlWithRegex(controlId, regexString) {
     var control = document.querySelector(controlId);
-    var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (regexEmail.test(control.value.trim()) === false) {
-        control.style.border = 'thick solid red';
-        return false;
-    }
-    return true;
-}
-
-function validateTel(controlId) {
-    var control = document.querySelector(controlId);
-    var regexTel = /^[\d\s\-\+\(\)\/]*$/;
-    if (regexTel.test(control.value.trim()) === false) {
+    var regex = regexString;
+    if (regex.test(control.value.trim()) === false) {
         control.style.border = 'thick solid red';
         return false;
     }
