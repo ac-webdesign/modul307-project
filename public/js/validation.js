@@ -10,8 +10,6 @@ document.querySelector('#form').addEventListener('submit', function (e) {
     controlHasValue('#lastname') === true ? true : errors.push('lastname not passed');
     controlHasValue('#email') === true ? true : errors.push('email not passed');
 
-    console.log(errors);
-    e.preventDefault();
     if (errors.length > 0) {
         e.preventDefault();
     }
@@ -19,9 +17,10 @@ document.querySelector('#form').addEventListener('submit', function (e) {
 
 function controlHasValue(controlId) {
     var control = document.querySelector(controlId);
-    if (control.trim() === '') {
+    if (control.value.trim() === '') {
         control.style.border = 'thick solid red';
-        return true;
+        control.value = 'Bitte Feld ausfüllen';
+        return false;
     }
-    return false;
+    return true;
 }
